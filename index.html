@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UNIX Study Guides</title>
+  <style>
+    :root { --blue: #075f9b; --pale: #edf7ff; --ink: #152336; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: linear-gradient(135deg, #e5f4ff, #f6fbff); color: var(--ink); font: 17px/1.55 Arial, Helvetica, sans-serif; }
+    main { width: min(680px, 92vw); padding: 42px 28px; }
+    h1 { color: var(--blue); font-size: clamp(2rem, 7vw, 3rem); margin: 0 0 8px; }
+    p { color: #536578; }
+    .cards { display: grid; gap: 16px; margin-top: 28px; }
+    a { display: block; background: #fff; color: var(--blue); text-decoration: none; border: 1px solid #bdddf2; border-radius: 14px; padding: 22px; box-shadow: 0 8px 20px #5b88aa20; }
+    a:hover, a:focus { background: var(--pale); outline: 3px solid #7bc4ef; outline-offset: 2px; }
+    strong { display: block; font-size: 1.25rem; }
+    small { color: #526477; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>UNIX Study Guides</h1>
+    <p>Clear, mobile-friendly notes with diagrams, charts, and API summaries.</p>
+    <section class="cards" aria-label="Study guides">
+      <a href="unix_unit1_asd_ste100.html"><strong>Unit 1: UNIX Introduction</strong><small>Operating systems, ANSI C, POSIX, APIs, limits, and errors.</small></a>
+      <a href="unix_unit2_asd_ste100.html"><strong>Unit 2: Files and File APIs</strong><small>File types, permissions, inodes, links, file I/O, and locking.</small></a>
+    </section>
+  </main>
+</body>
+</html>
+
