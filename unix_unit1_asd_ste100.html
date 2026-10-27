@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UNIX Unit 1 - ASD-STE100 Study Guide</title>
+<style>
+:root{--ink:#152336;--muted:#526477;--blue:#1167b1;--pale:#edf6ff;--green:#13795b;--amber:#a65b00;--line:#cbd8e5;--card:#fff}*{box-sizing:border-box}body{margin:0;background:#f4f7fa;color:var(--ink);font:16px/1.58 Arial,Helvetica,sans-serif}.page{max-width:1120px;margin:auto;background:white;padding:48px 7%;box-shadow:0 0 30px #b9c6d333}h1{font-size:2.35rem;line-height:1.15;margin:0 0 8px;color:#083e73}h2{font-size:1.65rem;margin:50px 0 14px;border-bottom:3px solid #51a7e8;padding-bottom:7px;color:#0b4f87}h3{font-size:1.2rem;margin:28px 0 8px;color:#075f91}p{margin:8px 0 14px}.lead{font-size:1.1rem;color:var(--muted);max-width:800px}.tag{display:inline-block;background:#d9efff;color:#07538e;font-weight:bold;padding:3px 9px;border-radius:99px;font-size:.83rem;margin:2px 3px 2px 0}.toc{background:var(--pale);border-left:5px solid var(--blue);padding:18px 22px;margin:28px 0}.toc ol{columns:2;margin:6px 0;padding-left:25px}.toc a{color:#075f91;text-decoration:none}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.card{border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--card)}.card h3{margin-top:0}.note,.warning,.key{border-radius:8px;padding:14px 16px;margin:17px 0}.note{background:#edf7ff;border-left:5px solid #247abd}.warning{background:#fff6e6;border-left:5px solid #e29a2d}.key{background:#ebf8f2;border-left:5px solid var(--green)}.diagram{margin:22px 0;padding:20px;background:#f8fbfe;border:1px solid var(--line);border-radius:10px;text-align:center}.flow{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap}.box{min-width:145px;padding:13px 12px;border-radius:8px;background:#e5f2fe;border:1px solid #7eb8e8;font-weight:bold}.arrow{font-size:1.65rem;color:#1266ab}.tree{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;text-align:left}.tree .root{grid-column:1/4;text-align:center;background:#0f6caf;color:white;border-radius:8px;padding:12px;font-weight:bold}.tree div:not(.root){background:#e8f5ee;padding:10px;border-radius:7px;border:1px solid #a7d8bd}table{border-collapse:collapse;width:100%;margin:15px 0;font-size:.94rem}caption{text-align:left;font-weight:bold;margin-bottom:6px}th,td{border:1px solid var(--line);padding:9px;vertical-align:top;text-align:left}th{background:#e3f1fc}tr:nth-child(even){background:#f8fbfd}code,pre{font-family:Consolas,"Courier New",monospace}code{background:#eef2f6;padding:1px 4px;border-radius:3px;color:#552a87}pre{white-space:pre-wrap;background:#172536;color:#e7f2fa;padding:17px;border-radius:8px;overflow:auto;line-height:1.45}.simple li{margin:6px 0}.checklist{padding-left:0;list-style:none}.checklist li:before{content:"✓ ";color:var(--green);font-weight:bold}.small{font-size:.9rem;color:var(--muted)}.print-break{break-before:page}@media print{body{background:#fff}.page{box-shadow:none;max-width:none;padding:24px}.print-break{break-before:page}}@media(max-width:650px){.page{padding:30px 5%}h1{font-size:1.85rem}.toc ol{columns:1}.tree{grid-template-columns:1fr}.tree .root{grid-column:auto}}
+</style>
+</head>
+<body><main class="page">
+<header>
+<span class="tag">UNIX</span><span class="tag">Unit 1</span><span class="tag">ASD-STE100 style</span>
+<h1>Introduction to UNIX and its Commands</h1>
+<p class="lead">A clear study guide for the supplied unit. Sentences use short, direct wording. Each section explains one main idea. Technical names stay unchanged because they are program names or standard names.</p>
+<div class="warning"><strong>About the source:</strong> This unit contains historical standards and old C++ headers such as <code>&lt;iostream.h&gt;</code>. Learn them for the syllabus. For new code, use current C or C++ headers and the current POSIX documentation.</div>
+</header>
+<nav class="toc"><strong>Contents</strong><ol><li><a href="#os">Operating systems</a></li><li><a href="#types">Types of operating system</a></li><li><a href="#unix">UNIX and standards</a></li><li><a href="#ansi">ANSI C features</a></li><li><a href="#posix">POSIX standards and environment</a></li><li><a href="#api">UNIX and POSIX APIs</a></li><li><a href="#limits">System limits</a></li><li><a href="#errors">Errors and exam revision</a></li></ol></nav>
+
+<section id="os"><h2>1. Operating system (OS)</h2>
+<p>An operating system is system software. It is the interface between a user program and computer hardware. It controls shared resources. It also gives programs a consistent way to use the computer.</p>
+<div class="diagram"><strong>Diagram: the OS is the control layer</strong><div class="flow"><div class="box">User</div><span class="arrow">→</span><div class="box">Application program</div><span class="arrow">→</span><div class="box" style="background:#bfe4ff">Operating system</div><span class="arrow">→</span><div class="box">CPU, memory, disks, devices</div></div></div>
+<div class="grid"><div class="card"><h3>Memory management</h3><p>The OS assigns memory to processes. It protects one process from another process.</p></div><div class="card"><h3>Processor management</h3><p>The OS selects the process that uses the CPU. This activity is called scheduling.</p></div><div class="card"><h3>Device management</h3><p>The OS controls input and output devices, such as disks, keyboards, and printers.</p></div><div class="card"><h3>File management</h3><p>The OS creates, stores, finds, protects, and removes files and directories.</p></div></div></section>
+
+<section id="types"><h2>2. Types of operating system</h2>
+<p>The same OS can have more than one capability. The categories below describe the main design goal.</p>
+<div class="tree"><div class="root">Operating-system types in this unit</div><div><strong>Batch OS</strong><br>Collect similar jobs. Run them as batches. Users do not interact with each job while it runs.</div><div><strong>Time-shared OS</strong><br>Give each task a short CPU period. This period is the time quantum. It supports multitasking.</div><div><strong>Distributed OS</strong><br>Coordinate work on more than one processor or computer. The processors can have separate memory and clocks.</div><div><strong>Network OS</strong><br>Connect systems to share files, printers, applications, and management services.</div><div><strong>Real-time OS</strong><br>Respond within a required time. It is used when timing matters, for example in control systems.</div></div>
+<table><caption>Comparison chart</caption><tr><th>Type</th><th>How it works</th><th>Example use</th></tr><tr><td>Batch</td><td>Groups jobs before processing.</td><td>Payroll and statement processing.</td></tr><tr><td>Time-shared</td><td>Changes the active task quickly.</td><td>General multi-user UNIX and Linux use.</td></tr><tr><td>Distributed</td><td>Shares work between processors.</td><td>Cooperating computer systems.</td></tr><tr><td>Network</td><td>Shares resources through a network.</td><td>File and printer servers.</td></tr><tr><td>Real-time</td><td>Meets a response deadline.</td><td>Robots and industrial control.</td></tr></table>
+<h3>Hard and soft real-time systems</h3><ul class="simple"><li><strong>Hard real-time:</strong> Missing a deadline is unacceptable. A late result can cause failure.</li><li><strong>Soft real-time:</strong> A late result reduces quality, but the system can continue.</li></ul><div class="note">Examples named in the source include FreeRTOS, VxWorks, QNX, ThreadX, and Nucleus RTOS. The source also lists UNIX, Linux, and server operating systems as time-shared examples.</div></section>
+
+<section id="unix"><h2>3. UNIX, ANSI, and POSIX standards</h2>
+<p>UNIX began at Bell Labs in 1969. The source names Ken Thompson, Dennis Ritchie, Douglas McElroy, and Joe Ossanna. UNIX systems later developed through AT&amp;T System V and BSD (Berkeley Software Distribution). AT&amp;T and Sun Microsystems combined major System V and BSD work in System V Release 4.</p>
+<h3>Why standards matter</h3><p>A standard is an agreed technical specification. Standards let a developer write source code that can move between compliant systems with fewer changes. This property is called <strong>portability</strong>.</p>
+<div class="diagram"><strong>Diagram: portability at source level</strong><div class="flow"><div class="box">One C or C++ source program</div><span class="arrow">→</span><div class="box">Standard headers and APIs</div><span class="arrow">→</span><div class="box">Compile on a compliant target system</div></div></div>
+<table><tr><th>Standard family</th><th>Purpose in this unit</th></tr><tr><td>ANSI C</td><td>Defines C language constructs and libraries. ANSI published the C standard X3.159-1989.</td></tr><tr><td>POSIX</td><td>Defines portable operating-system interfaces. IEEE developed the POSIX family.</td></tr></table></section>
+
+<section id="ansi"><h2>4. ANSI C standard</h2>
+<p>ANSI C made C implementations more consistent. It corrected important weaknesses in older K&amp;R C practice. The source describes four key improvements.</p>
+<h3>4.1 Function prototypes</h3><p>A prototype states a function name, return type, and parameter types. The compiler can then detect a wrong number of arguments or wrong argument types before the program runs.</p>
+<pre>unsigned long foo(char *fmt, double data);
+int printf(const char *fmt, ...);  /* ... means variable arguments */</pre>
+<div class="key"><strong>Result:</strong> A prototype can prevent invalid calls that older C compilers might accept and that might fail when the program runs.</div>
+<h3>4.2 <code>const</code> and <code>volatile</code></h3><table><tr><th>Qualifier</th><th>Meaning</th><th>Typical use</th></tr><tr><td><code>const</code></td><td>The program must not change the object through that name or pointer.</td><td><code>printf(const char *fmt, ...)</code> means <code>printf</code> must not modify the format string through <code>fmt</code>.</td></tr><tr><td><code>volatile</code></td><td>The value can change outside the normal program flow. The compiler must read it when the code requests a read.</td><td>Memory-mapped device register or data changed by hardware.</td></tr></table>
+<pre>char get_io(void) {
+    volatile char *io_port = (volatile char *)0x7777;
+    char ch = *io_port;  /* first hardware read */
+    ch = *io_port;       /* second hardware read */
+    return ch;
+}</pre>
+<p>Without <code>volatile</code>, an optimizer can treat two reads as the same read. This is unsafe when hardware can change the value between reads.</p>
+<h3>4.3 Wide characters and internationalization</h3><p>ANSI C supports wide characters. A wide character can use more than one byte. The <code>setlocale</code> function selects regional formats, such as date, money, and number formats.</p>
+<pre>#include &lt;locale.h&gt;
+char *setlocale(int category, const char *locale);</pre>
+<p>For example, many places use <code>dd/mm/yyyy</code>. The United States often uses <code>mm/dd/yyyy</code>.</p>
+<h3>4.4 Function pointers</h3><p>A function pointer stores the address of a function. ANSI C allows a function call through the pointer without an explicit <code>*</code> dereference.</p>
+<pre>extern void foo(double value, const int *ptr);
+void (*funptr)(double, const int *) = foo;
+
+foo(12.78, numbers);       /* direct call */
+funptr(12.78, numbers);    /* call through pointer */</pre>
+<p>Older K&amp;R C style also allowed <code>(*funptr)(...)</code>. The term <strong>dereference</strong> means use the pointer to access the function that it identifies.</p>
+<h3>4.5 Preprocessor symbols</h3><p>The C preprocessor assigns values to predefined symbols during compilation.</p>
+<table><tr><th>Symbol</th><th>Use</th></tr><tr><td><code>__STDC__</code></td><td>Feature test for ANSI C conformance. Historical notes may show <code>_STDC_</code>; modern compilers use <code>__STDC__</code>.</td></tr><tr><td><code>__LINE__</code></td><td>Line number of the source reference.</td></tr><tr><td><code>__FILE__</code></td><td>Name of the source file.</td></tr><tr><td><code>__DATE__</code></td><td>Compilation date.</td></tr><tr><td><code>__TIME__</code></td><td>Compilation time.</td></tr></table>
+<pre>#include &lt;stdio.h&gt;
+int main(void) {
+#if __STDC__
+    printf("%s compiled at %s %s; line %d\n",
+           __FILE__, __DATE__, __TIME__, __LINE__);
+#endif
+    return 0;
+}</pre>
+<h3>ANSI/ISO C++</h3><p>The source says an ANSI/ISO C++ compiler supports classes, derived classes, virtual functions, operator overloading, templates, exceptions, and iostream library classes. These are C++ language features, not ANSI C features.</p></section>
+
+<section id="posix" class="print-break"><h2>5. POSIX standards and environment</h2>
+<p>POSIX means <strong>Portable Operating System Interface</strong>. IEEE specifies this family of API standards. POSIX began from UNIX practice, but a POSIX-compliant system does not have to be a UNIX system.</p>
+<table><tr><th>Part</th><th>Main purpose stated in the source</th><th>Historic identifier</th></tr><tr><td>POSIX.1</td><td>Base OS API. Includes file and process manipulation.</td><td>IEEE 1003.1-1990; ISO/IEC 9945-1:1990</td></tr><tr><td>POSIX.1b</td><td>Real-time interfaces, including inter-process communication (IPC).</td><td>IEEE 1003.4-1993</td></tr><tr><td>POSIX.1c</td><td>Multithreaded programming interface.</td><td>Thread extension in the course material</td></tr></table>
+<p>The source gives VMS, OS/2, and Windows NT as examples of systems that can support POSIX even when they are not UNIX systems.</p>
+<h3>Requesting POSIX declarations</h3><p>In old source examples, define a feature-selection macro before you include any system header. The course notes show <code>_POSIX_SOURCE</code> and <code>_POSIX_C_SOURCE 199309L</code>. Modern programs normally use a current value that the target system supports.</p>
+<pre>/* Put this before any system header. */
+#define _POSIX_C_SOURCE 200809L
+#include &lt;unistd.h&gt;</pre>
+<p>Or pass a definition to the compiler, for example <code>cc -D_POSIX_C_SOURCE=200809L program.c</code>.</p>
+<h3>Header files and libraries</h3><p>UNIX commonly stores C and C++ headers under <code>/usr/include</code>. A program includes a header with <code>#include &lt;header-name&gt;</code>. POSIX defines the interface; it does not require the header to exist at one fixed physical path. Common POSIX and UNIX declarations are in <code>&lt;unistd.h&gt;</code>. Many API implementations are supplied by the C library, such as <code>libc</code>.</p>
+<h3>POSIX feature-test macros</h3><p>Feature-test macros tell a program whether an optional capability exists. The source says these macros are in <code>&lt;unistd.h&gt;</code>.</p>
+<table><tr><th>Macro</th><th>Meaning in the source</th></tr><tr><td><code>_POSIX_JOB_CONTROL</code></td><td>The system supports BSD-style job control.</td></tr><tr><td><code>_POSIX_SAVED_IDS</code></td><td>A process has saved set-user-ID and set-group-ID values. It can set effective IDs to those saved values through related APIs.</td></tr><tr><td><code>_POSIX_CHOWN_RESTRICTED</code></td><td>Controls whether ordinary users can change ownership of their files. A value of <code>-1</code> has the course meaning stated in the source.</td></tr><tr><td><code>_POSIX_NO_TRUNC</code></td><td>Describes handling of a pathname that is longer than <code>NAME_MAX</code>.</td></tr><tr><td><code>_POSIX_VDISABLE</code></td><td>Describes the special-character disable value for terminal files.</td></tr></table>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+int main(void) {
+#ifdef _POSIX_JOB_CONTROL
+    puts("System supports job control.");
+#else
+    puts("System does not support job control.");
+#endif
+    return 0;
+}</pre></section>
+
+<section id="api"><h2>6. UNIX and POSIX APIs</h2>
+<p>An API is an application programming interface. It is a set of functions that a program calls to perform system-specific work. UNIX systems provide broadly similar APIs.</p>
+<div class="diagram"><strong>Diagram: an API call</strong><div class="flow"><div class="box">Your C program</div><span class="arrow">calls</span><div class="box">POSIX / UNIX API</div><span class="arrow">asks</span><div class="box">Operating system service</div><span class="arrow">uses</span><div class="box">System resource</div></div></div>
+<ul class="simple"><li>Get system configuration and user information.</li><li>Manipulate files.</li><li>Create and control processes.</li><li>Communicate between processes.</li><li>Use signals and daemons.</li><li>Communicate through networks.</li></ul>
+<h3>Source portability</h3><p>POSIX portability is mainly at source level. Move the source code to the target system. Then compile it with conforming headers and a standard C compiler. Finally, link it with the standard libraries.</p>
+<h3>Basic UNIX commands named by the unit</h3><table><tr><th>Command</th><th>Simple purpose</th><th>Example</th></tr><tr><td><code>date</code></td><td>Show or set the system date and time. Setting the date needs permission.</td><td><code>date</code></td></tr><tr><td><code>cal</code> or <code>calendar</code></td><td>Show a calendar. Availability and name can vary by system.</td><td><code>cal</code></td></tr><tr><td><code>man</code></td><td>Open the manual page for a command or API.</td><td><code>man date</code></td></tr><tr><td><code>pwd</code></td><td>Show the current working directory.</td><td><code>pwd</code></td></tr></table></section>
+
+<section id="limits"><h2>7. Compile-time and run-time limits</h2>
+<p>A limit is a boundary that the system supports. POSIX defines minimum values for some limits. Programs can check limits at compile time or at run time.</p>
+<div class="grid"><div class="card"><h3>Compile time</h3><p>Use constants in <code>&lt;limits.h&gt;</code>. The values are available while the program is compiled.</p></div><div class="card"><h3>Run time</h3><p>Call <code>sysconf</code>, <code>pathconf</code>, or <code>fpathconf</code>. The return value can depend on the running system or a file object.</p></div></div>
+<h3>POSIX.1 compile-time minimum limits</h3><table><tr><th>Constant</th><th>Minimum</th><th>Meaning</th></tr><tr><td><code>_POSIX_CHILD_MAX</code></td><td>6</td><td>Child processes that one process can create at one time.</td></tr><tr><td><code>_POSIX_OPEN_MAX</code></td><td>16</td><td>Files that a process can open at the same time.</td></tr><tr><td><code>_POSIX_STREAM_MAX</code></td><td>8</td><td>I/O streams opened by a process.</td></tr><tr><td><code>_POSIX_ARG_MAX</code></td><td>4096</td><td>Bytes of arguments passed to an <code>exec</code> function.</td></tr><tr><td><code>_POSIX_NGROUP_MAX</code></td><td>0</td><td>Supplementary groups to which a process can belong.</td></tr><tr><td><code>_POSIX_PATH_MAX</code></td><td>255</td><td>Characters allowed in a pathname.</td></tr><tr><td><code>_POSIX_NAME_MAX</code></td><td>14</td><td>Characters allowed in a filename.</td></tr><tr><td><code>_POSIX_LINK_MAX</code></td><td>8</td><td>Links that a file can have.</td></tr><tr><td><code>_POSIX_PIPE_BUF</code></td><td>512</td><td>Bytes that can be read from or written to a pipe atomically.</td></tr><tr><td><code>_POSIX_MAX_INPUT</code></td><td>255</td><td>Terminal input-queue capacity in bytes.</td></tr><tr><td><code>_POSIX_MAX_CANON</code></td><td>255</td><td>Maximum canonical terminal input size.</td></tr><tr><td><code>_POSIX_SSIZE_MAX</code></td><td>32767</td><td>Largest value stored in an <code>ssize_t</code> object.</td></tr><tr><td><code>_POSIX_TZNAME_MAX</code></td><td>3</td><td>Characters in a time-zone name.</td></tr></table>
+<h3>POSIX.1b compile-time minimum limits</h3><table><tr><th>Constant</th><th>Minimum</th><th>Meaning</th></tr><tr><td><code>_POSIX_AIO_MAX</code></td><td>1</td><td>Simultaneous asynchronous I/O operations.</td></tr><tr><td><code>_POSIX_AIO_LISTIO_MAX</code></td><td>2</td><td>Operations in one list I/O request.</td></tr><tr><td><code>_POSIX_TIMER_MAX</code></td><td>32</td><td>Timers used by a process at the same time.</td></tr><tr><td><code>_POSIX_DELAYTIMER_MAX</code></td><td>32</td><td>Timer overruns allowed per timer.</td></tr><tr><td><code>_POSIX_MQ_OPEN_MAX</code></td><td>2</td><td>Message queues accessed by one process at the same time.</td></tr><tr><td><code>_POSIX_MQ_PRIO_MAX</code></td><td>2</td><td>Message priorities that can be assigned.</td></tr><tr><td><code>_POSIX_RTSIG_MAX</code></td><td>8</td><td>Real-time signals.</td></tr><tr><td><code>_POSIX_SIGQUEUE_MAX</code></td><td>32</td><td>Real-time signals that one process can queue.</td></tr><tr><td><code>_POSIX_SEM_NSEMS_MAX</code></td><td>256</td><td>Semaphores used by one process at the same time.</td></tr><tr><td><code>_POSIX_SEM_VALUE_MAX</code></td><td>32767</td><td>Largest semaphore value.</td></tr></table>
+<h3>Run-time limit functions</h3><pre>#include &lt;unistd.h&gt;
+long sysconf(int name);
+long pathconf(const char *path, int name);
+long fpathconf(int fd, int name);</pre>
+<table><tr><th>Function</th><th>What it checks</th><th>Selector prefix</th></tr><tr><td><code>sysconf</code></td><td>System-wide configuration.</td><td><code>_SC_</code></td></tr><tr><td><code>pathconf</code></td><td>Limit for a named path.</td><td><code>_PC_</code></td></tr><tr><td><code>fpathconf</code></td><td>Limit for an open file descriptor.</td><td><code>_PC_</code></td></tr></table>
+<table><caption>Examples of <code>sysconf</code> selectors</caption><tr><th>Selector</th><th>Returns information about</th></tr><tr><td><code>_SC_ARG_MAX</code></td><td>Maximum argument bytes for an <code>exec</code> call.</td></tr><tr><td><code>_SC_CHILD_MAX</code></td><td>Maximum child processes owned at the same time.</td></tr><tr><td><code>_SC_OPEN_MAX</code></td><td>Maximum open files per process.</td></tr><tr><td><code>_SC_NGROUPS_MAX</code></td><td>Maximum supplementary groups per process.</td></tr><tr><td><code>_SC_CLK_TCK</code></td><td>Clock ticks per second.</td></tr><tr><td><code>_SC_JOB_CONTROL</code>, <code>_SC_SAVED_IDS</code>, <code>_SC_VERSION</code></td><td>Related POSIX feature or version values.</td></tr><tr><td><code>_SC_TIMERS</code>, <code>_SC_DELAYTIMER_MAX</code>, <code>_SC_RTSIG_MAX</code>, <code>_SC_MQ_OPEN_MAX</code>, <code>_SC_MQ_PRIO_MAX</code>, <code>_SC_SEM_NSEMS_MAX</code>, <code>_SC_SEM_VALUE_MAX</code>, <code>_SC_SIGQUEUE_MAX</code>, <code>_SC_AIO_LISTIO_MAX</code>, <code>_SC_AIO_MAX</code></td><td>Related POSIX.1b real-time limit values.</td></tr></table>
+<table><caption>Examples of <code>pathconf</code> and <code>fpathconf</code> selectors</caption><tr><th>Selector</th><th>Returns information about</th></tr><tr><td><code>_PC_CHOWN_RESTRICTED</code>, <code>_PC_NO_TRUNC</code>, <code>_PC_VDISABLE</code></td><td>Related POSIX feature values for the named file object.</td></tr><tr><td><code>_PC_PATH_MAX</code>, <code>_PC_NAME_MAX</code></td><td>Maximum pathname and filename lengths, in bytes.</td></tr><tr><td><code>_PC_LINK_MAX</code></td><td>Maximum links to a file.</td></tr><tr><td><code>_PC_PIPE_BUF</code></td><td>Maximum atomic pipe I/O block size.</td></tr><tr><td><code>_PC_MAX_CANON</code>, <code>_PC_MAX_INPUT</code></td><td>Terminal canonical input size and input-queue capacity.</td></tr></table>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+int main(void) {
+    long value = sysconf(_SC_OPEN_MAX);
+    if (value == -1) perror("sysconf");
+    else printf("OPEN_MAX: %ld\n", value);
+
+    value = pathconf("/", _PC_PATH_MAX);
+    if (value == -1) perror("pathconf");
+    else printf("Maximum path length: %ld\n", value + 1);
+    return 0;
+}</pre>
+<h3>FIPS requirement in the source</h3><p>FIPS means Federal Information Processing Standard. The source describes its POSIX.1 profile as more restrictive. It requires job control, saved IDs, defined <code>_POSIX_CHOWN_RESTRICTED</code> and <code>_POSIX_VDISABLE</code>, at least 8 for <code>NGROUP_MAX</code>, specified interrupted <code>read</code>/<code>write</code> behavior, and group-ID inheritance for a new file. It also says long path names are not supported in this profile.</p></section>
+
+<section id="errors"><h2>8. API return values and errors</h2>
+<p>Many APIs return an integer status. In the course pattern, <code>-1</code> means that the API failed. The API sets the global <code>errno</code> value to an error code. Error codes are declared in <code>&lt;errno.h&gt;</code>.</p>
+<div class="diagram"><strong>Diagram: normal error-handling sequence</strong><div class="flow"><div class="box">Call API</div><span class="arrow">→</span><div class="box">Check return value</div><span class="arrow">→</span><div class="box">If -1, read errno</div><span class="arrow">→</span><div class="box">Show or handle the error</div></div></div>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;string.h&gt;
+
+/* After an API reports failure: */
+perror("open");                 /* prints a standard diagnostic */
+fprintf(stderr, "%s\n", strerror(errno)); /* gets error text */</pre>
+<p><code>perror</code> prints a diagnostic message. <code>strerror(errno)</code> returns a message string. A program can print that string in its own format.</p>
+<table><caption>Common error status codes listed in the source</caption><tr><th>Code</th><th>Simple meaning</th></tr><tr><td><code>EACCES</code></td><td>The process does not have permission to perform the API operation.</td></tr><tr><td><code>EPERM</code></td><td>The calling process does not have the required privileged permission.</td></tr><tr><td><code>ENOENT</code></td><td>The API was given a name that does not identify an existing file or directory.</td></tr><tr><td><code>EBADF</code></td><td>The API received an invalid file descriptor.</td></tr><tr><td><code>EINTR</code></td><td>A signal interrupted the API operation.</td></tr><tr><td><code>EAGAIN</code></td><td>A requested resource is temporarily unavailable. Try again later when the API contract permits it.</td></tr><tr><td><code>ENOMEM</code></td><td>The system could not allocate dynamic memory.</td></tr><tr><td><code>EIO</code></td><td>An input/output error occurred.</td></tr><tr><td><code>EPIPE</code></td><td>The program tried to write to a pipe that has no reader.</td></tr><tr><td><code>EFAULT</code></td><td>The API received an invalid memory address in an argument.</td></tr><tr><td><code>ENOEXEC</code></td><td>An <code>exec</code> API could not execute the program file.</td></tr><tr><td><code>ECHILD</code></td><td>The process has no child process that it can wait for.</td></tr></table>
+<h2>9. Fast exam revision</h2><ul class="checklist"><li>An OS manages memory, CPU scheduling, devices, and files.</li><li>Time sharing uses short CPU periods called quanta.</li><li>Hard real-time work cannot miss its deadline. Soft real-time work can tolerate some delay.</li><li>ANSI C improved C with prototypes, qualifiers, wide-character support, and simpler function-pointer calls.</li><li><code>const</code> prevents modification through a name. <code>volatile</code> protects required reads from compiler optimization.</li><li>POSIX defines portable APIs. A POSIX system does not have to be UNIX.</li><li><code>&lt;unistd.h&gt;</code> contains many POSIX and UNIX declarations.</li><li>Use <code>sysconf</code> for system values; use <code>pathconf</code> or <code>fpathconf</code> for file-object values.</li><li>For many APIs, <code>-1</code> signals failure and <code>errno</code> explains the reason.</li></ul>
+<p class="small">Prepared from the supplied Unit 1 course PDF. This guide explains the material in simple English. It does not replace current platform manuals for production code.</p></section>
+</main></body></html>
+
